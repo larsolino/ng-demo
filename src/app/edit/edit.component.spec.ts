@@ -1,6 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EditComponent } from './edit.component';
+import { TestBed } from '@angular/core/testing';
 import { Address, Person, SearchService } from '../shared';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +7,7 @@ import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('EditComponent', () => {
-  let mockSearchService: SearchService
+  let mockSearchService: SearchService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -29,7 +28,6 @@ describe('EditComponent', () => {
     mockSearchService = TestBed.inject(SearchService);
   });
 
-  /*
   it('should fetch a single record', () => {
     const fixture = TestBed.createComponent(EditComponent);
 
@@ -43,16 +41,17 @@ describe('EditComponent', () => {
     fixture.detectChanges();
 
     // verify service was called
+    // @ts-ignore
     expect(mockSearchService.get).toHaveBeenCalledWith(1);
 
     // verify data was set on component when initialized
     const editComponent = fixture.componentInstance;
+    // @ts-ignore
     expect(editComponent.person.address.city).toBe('Denver');
 
     // verify HTML renders as expected
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h3').innerHTML)
-      .toBe('Michael Porter Jr.');
+    // @ts-ignore
+    expect(compiled.querySelector('h3').innerHTML).toBe('Michael Porter Jr.');
   });
-   */
 });
