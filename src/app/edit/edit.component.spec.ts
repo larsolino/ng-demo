@@ -41,17 +41,14 @@ describe('EditComponent', () => {
     fixture.detectChanges();
 
     // verify service was called
-    // @ts-ignore
     expect(mockSearchService.get).toHaveBeenCalledWith(1);
 
     // verify data was set on component when initialized
     const editComponent = fixture.componentInstance;
-    // @ts-ignore
     expect(editComponent.person.address.city).toBe('Denver');
 
     // verify HTML renders as expected
     const compiled = fixture.nativeElement;
-    // @ts-ignore
     expect(compiled.querySelector('h3').innerHTML).toBe('Michael Porter Jr.');
   });
 });

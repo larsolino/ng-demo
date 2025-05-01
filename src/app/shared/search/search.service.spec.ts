@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { SearchService } from './search.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('SearchService', () => {
   let service: SearchService;
@@ -14,6 +14,10 @@ describe('SearchService', () => {
 
     service = TestBed.inject(SearchService);
     httpMock = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => {
+    httpMock.verify();
   });
 
   it('should be created', () => {
@@ -67,10 +71,4 @@ describe('SearchService', () => {
     expect(req.request.method).toBe('GET');
     req.flush(mockResponse);
   });
-
-  afterEach(() => {
-    httpMock.verify();
-  });
 });
-
-
